@@ -1,7 +1,7 @@
 {
     "name": "com.handcircus.unity-resource-checker",
     "displayName": "Unity Resource Checker",
-    "version": "0.1.0",
+    "version": "1.0.0",
     "unity": "2018.3",
     "description": "Resource checker is designed to help bring visibility to resource use in your scenes (ie what assets are using up memory, which meshes are a bit too detailed, where are my materials and textures being used).",
     "keywords": [ "Unity Engine", "Unity" ],
