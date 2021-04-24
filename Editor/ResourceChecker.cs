@@ -50,7 +50,7 @@ public class TextureDetails : IEquatable<TextureDetails>
     {
         return Equals(obj as TextureDetails);
     }
-};
+}
 
 public class MaterialDetails
 {
@@ -69,7 +69,7 @@ public class MaterialDetails
 		isgui = false;
 		isSky = false;
 	}
-};
+}
 
 public class MeshDetails
 {
@@ -85,7 +85,7 @@ public class MeshDetails
 	{
 		instance = false;
 	}
-};
+}
 
 public class MissingGraphic{
 	public Transform Object;
@@ -102,7 +102,7 @@ public class ResourceChecker : EditorWindow {
 	enum InspectType 
 	{
 		Textures,Materials,Meshes,Missing
-	};
+	}
 
 	bool IncludeDisabledObjects=true;
 	bool IncludeSpriteAnimations=true;
@@ -136,15 +136,21 @@ public class ResourceChecker : EditorWindow {
 
 	bool collectedInPlayingMode;
 
-	[MenuItem ("Window/Resource Checker")]
-	static void Init ()
-	{  
-		ResourceChecker window = (ResourceChecker) EditorWindow.GetWindow (typeof (ResourceChecker));
-		window.CheckResources();
-		window.minSize=new Vector2(MinWidth,475);
-	}
+	//[MenuItem ("Window/Resource Checker")]
+	//static void Init ()
+	//{  
+	//	ResourceChecker window = (ResourceChecker) EditorWindow.GetWindow (typeof (ResourceChecker));
+	//}
 
-	void OnGUI ()
+    [MenuItem("Window/Resource Checker")]
+    private static void Init()
+    {
+        var window = GetWindow<ResourceChecker>("Resource Checker");
+        window.CheckResources();
+        window.minSize = new Vector2(MinWidth, 500);
+    }
+
+    void OnGUI ()
 	{
 		defColor = GUI.color;
 		IncludeDisabledObjects = GUILayout.Toggle(IncludeDisabledObjects, "Include disabled objects", GUILayout.Width(300));
